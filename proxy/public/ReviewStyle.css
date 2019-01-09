@@ -1,0 +1,132 @@
+.tableRow {
+  background-color: silver;
+}
+
+.reviews {
+  display: flex;
+  flex-direction: column;
+  font-family: BasisGrotesque, Avenir, Helvetica Neue, Helvetica, sans-serif;
+  font: weight 700;
+  line-height: 1.2;
+  width: 500px;
+}
+
+a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#reviewA {
+  margin-left: 0px;
+}
+
+.reviewLabel {
+  color: #5d5d5d;
+  font-size: 18px;
+  margin-bottom: 15px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+
+.circle:before {
+  content: '\25CF';
+  font-size: 10px;
+  margin-right: 10px;
+}
+
+.starRating {
+  float: left;
+}
+
+#numOfReviews {
+  float: left;
+  margin-left: 10px;
+  margin-top: 2px;
+}
+
+.individualReview {
+  display: flex;
+  flex-direction: row;
+  padding: 30px 0;
+  height: 150px;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.picture {
+  /*border: 2px solid #ffa94d;*/
+  border-radius: 100px;
+  max-width: 100%;
+  width: 80px;
+  height: 80px;
+  padding: 0.5em;
+  float: left;
+  background-image: url('../images/emptyAvatar.jpg');
+  background-size: cover;
+}
+
+.reviewAndName {
+  /*border: 2px solid #ffa94d;*/
+  /*background-color: #ffd8a8;*/
+  width: 400px;
+  padding: 0.5em;
+  margin-left: 10px;
+  color: black;
+  float: left;
+}
+
+.review {
+  font-weight: bold;
+}
+
+.userName {
+  margin-top: 15px;
+  margin-right: 10px;
+  float: left;
+  font-weight: bold;
+  color: #59d389;
+  font-size: 13px;
+}
+
+.date {
+  margin-top: 15px;
+  float: left;
+  font-size: 13px;
+  color: #5d5d5d;
+}
+
+.moreReviews {
+  background-color: #8f63f4;
+  border: 1px solid #8f63f4;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: BasisGrotesque,Avenir,Helvetica Neue,Helvetica,sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  height: 34px;
+  width: 220px;
+  position: relative;
+  line-height: 33px;
+  padding: 0 14px;
+  margin: auto;
+  margin-top: 30px;
+}
+
+.addNewReview {
+  background-color: #8f63f4;
+  border: 1px solid #8f63f4;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: BasisGrotesque,Avenir,Helvetica Neue,Helvetica,sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  height: 34px;
+  width: 220px;
+  position: relative;
+  line-height: 33px;
+  padding: 0 14px;
+  margin: auto;
+  margin-top: 30px;
+}
