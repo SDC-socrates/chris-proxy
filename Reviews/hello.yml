@@ -3,7 +3,7 @@ config:
   processor: "./faker.js"
   phases:
     - duration: 60
-      arrivalRate: 1
+      arrivalRate: 1000
   defaults:
 scenarios:
   - name: "Make a new review"

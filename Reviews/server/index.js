@@ -1,56 +1,44 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-const db = require('../database');
+const cors = require('cors');
 
+const postgres = require('../database/cassandra.js');
 const app = express();
 const PORT = 3001;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(cors());
 app.use('/', express.static(path.join(__dirname, '/../client/dist/')));
 app.use(/\/\d+\//, express.static(path.join(__dirname, '/../client/dist/')));
 
 app.get('/api/turash/reviews/:id', (req, res) => {
-  // Make call to our DB
-  var endNumForNextSet = req.query.endNumForNextSet;
-  var submittedId = req.query.id;
-  db.getUsers(submittedId, endNumForNextSet, (err, result) => {
-    if (err) {
-      console.log('Error in server when getting all users');
-      return;
-    }
-    res.send(result);
-
+  const submittedId = req.params.id;
+  // console.log('REVIEWSSSSSSS', req);
+  postgres.getCarReviews(submittedId, (result) => {
+    res.json(result.rows);
   });
 });
 
-app.get('/api/turash/reviews/:id/ratings', (req, res) => {
-  // call db get ratings
-  var submittedId = req.query.id;
-  db.getRatingCount( submittedId, (err, result) => {
-    if (err) {
-      console.log('Error in server when getting all reviews');
-      return;
-    } else {
-      res.send(result);
-    }
-  })
+app.get(/.+\/\d+\/ratings/, (req, res) => {
+  const submittedId = req.query.id;
+  // console.log('RATINGS COUNT', submittedId);
+  postgres.getRatingCount(submittedId, (result) => {
+    res.json(result);
+  });
 });
 
-app.post('/api/turash/reviews/:id/addReview', (req, res) => {
-  db.addNewUser(req.body);
+app.post(/.+\/\d+\/addReview/, (req, res) => {
+  postgres.addNewReview(req.body);
   res.sendStatus(201);
-})
+});
 
-app.get('/api/turash/reviews/:id/reviewCount', (req, res) => {
-  // Make call to our DB
-  var submittedId = req.query.id;
-  db.getReviewCount(submittedId, (err, result) => {
-    if (err) {
-      console.log("Err getting review count");
-    }
+app.get(/.+\/\d+\/reviewCount/, (req, res) => {
+  const submittedId = req.query.id;
+  // console.log('REVIEW COUNT', req);
+  postgres.getReviewCount(submittedId, (result) => {
     res.json(result);
   });
 });
