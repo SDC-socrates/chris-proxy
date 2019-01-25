@@ -26,22 +26,26 @@
  -->
 
 
-    <div id="Carousel">Carousel</div>
+    <div id="carousel">Carousel</div>
     <!-- <div class="Description_Checkout"> -->
     <div class="mainContainer">
       <div class="mainContainer layoutSingleColumn">
-        <div id="Description">Description</div>
+        <div id="description">Description</div>
         <div id="Reviews">Review</div>
       </div>
-      <div id="Checkout" class="mainContainer sidebar">Checkout</div>
     </div>
 
     <script src="/lib/react.development.js"></script>
     <script src="/lib/react-dom.development.js"></script>
-    <script src="http://localhost:3001/bundle.js"></script>
-    <script src="http://localhost:3002/bundle.js"></script>
-    <script src="http://localhost:3003/bundle.js"></script>
-    <script src="http://localhost:3004/bundle.js"></script>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="http://turashc-lb-1894563298.us-west-2.elb.amazonaws.com:3004/bundle.js"></script>
+    <script>
+    ReactDOM.render(React.createElement(Carousel),
+      document.getElementById('carousel'));
+    </script>
+    <script src="http://ec2-18-216-78-86.us-east-2.compute.amazonaws.com:3000/bundle.js"></script>
+    <script src="http://ec2-54-174-107-24.compute-1.amazonaws.com:3000/bundle.js"></script>
     <!-- see: https://reactjs.org/docs/react-without-jsx.html -->
   </body>
 </html>
